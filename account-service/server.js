@@ -24,7 +24,7 @@ app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
     // 這裡應該添加驗證邏輯，例如查詢資料庫
-    if (username === 'user' && password === 'pass') {
+    if (username && password) {
         const accessToken = jwt.sign({ username }, ACCESS_TOKEN_SECRET, { expiresIn: '15m' });
         const refreshToken = jwt.sign({ username }, REFRESH_TOKEN_SECRET, { expiresIn: '7d' });
 
